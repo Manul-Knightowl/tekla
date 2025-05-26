@@ -28,3 +28,53 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Parallax section styles */
+.parallax-section {
+  position: relative;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smooth scrolling container styles */
+#smooth-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#smooth-content {
+  will-change: transform;
+}
+
+/* Parallax layers styles */
+.parallax-layers {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-layers > * {
+  will-change: transform;
+}
+
+/* Parallax scroll trigger styles */
+.parallax-scroll-trigger {
+  position: relative;
+}
+
+.parallax-elements > * {
+  will-change: transform, opacity;
+}
