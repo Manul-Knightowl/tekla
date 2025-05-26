@@ -24,7 +24,7 @@ export default function MaterialsAndFinishes() {
           {/* Solid Wood Options */}
           <div className="flex flex-col items-center justify-center text-center p-4">
             <ParallaxSection type="slide-from-right" speed={1.2}>
-            <div className="mb-4">
+            <div className="mb-4 flex justify-center">
               <Image
                 src="/furnitureWebsite/MaterialsAndFinishes/solidWoodOption.png"
                 alt="Solid Wood Options"
@@ -41,7 +41,7 @@ export default function MaterialsAndFinishes() {
           {/* Upholstery & Fabrics */}
           <div className="flex flex-col items-center justify-center text-center p-4">
             <ParallaxSection type="slide-from-right" speed={1.2}>
-            <div className="mb-4">
+            <div className="mb-4 flex justify-center">
               <Image
                 src="/furnitureWebsite/MaterialsAndFinishes/UpholsteryAndFabrics.png"
                 alt="Upholstery & Fabrics"
@@ -58,7 +58,7 @@ export default function MaterialsAndFinishes() {
           {/* Color Stains & Paints */}
           <div className="flex flex-col items-center justify-center text-center p-4">
             <ParallaxSection type="slide-from-right" speed={1.2}>
-            <div className="mb-4">
+            <div className="mb-4 flex justify-center">
               <Image
                 src="/furnitureWebsite/MaterialsAndFinishes/ColorStainsAndPaints.png"
                 alt="Color Stains & Paints"
@@ -75,7 +75,7 @@ export default function MaterialsAndFinishes() {
           {/* Hardware & Accessories */}
           <div className="flex flex-col items-center justify-center text-center p-4">
             <ParallaxSection type="slide-from-right" speed={1.2}>
-            <div className="mb-4">
+            <div className="mb-4 flex justify-center">
               <Image
                 src="/furnitureWebsite/MaterialsAndFinishes/HardwareAndAccessories.png"
                 alt="Hardware & Accessories"

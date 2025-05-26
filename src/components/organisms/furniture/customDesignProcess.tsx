@@ -1,14 +1,14 @@
 "use client"
 
-import { useState } from "react";
-import Image from "next/image";
+import { useState } from "react"
+import Image from "next/image"
 
 export default function CustomDesignProcess() {
-  const [activeStep, setActiveStep] = useState(1);
+  const [activeStep, setActiveStep] = useState(1)
 
   const steps = [
     {
-      num: "01",
+      num: "O1",
       label: "Step One",
       title: "Share Your Idea",
       description:
@@ -16,7 +16,7 @@ export default function CustomDesignProcess() {
       imageSrc: "/furnitureWebsite/customDesignProcess.png",
     },
     {
-      num: "02",
+      num: "O2",
       label: "Step Two",
       title: "Design Collaboration",
       description:
@@ -24,7 +24,7 @@ export default function CustomDesignProcess() {
       imageSrc: "/furnitureWebsite/customDesignProcess.png",
     },
     {
-      num: "03",
+      num: "O3",
       label: "Step Three",
       title: "Production",
       description:
@@ -32,82 +32,104 @@ export default function CustomDesignProcess() {
       imageSrc: "/furnitureWebsite/customDesignProcess.png",
     },
     {
-      num: "04",
+      num: "O4",
       label: "Step Four",
       title: "Delivery & Setup",
-      description:
-        "We deliver your custom furniture to your home and ensure everything is set up perfectly.",
+      description: "We deliver your custom furniture to your home and ensure everything is set up perfectly.",
       imageSrc: "/furnitureWebsite/customDesignProcess.png",
     },
-  ];
+  ]
 
   return (
-    <div className="bg-black min-h-screen flex flex-col items-center justify-center p-4 md:p-6 lg:p-8 mt-[250px]">
-      <h1
-        className="text-white text-2xl md:text-3xl lg:text-4xl font-light mb-10 text-center"
-        style={{ fontFamily: "Ysabeau" }}
-      >
+    <div className="bg-black min-h-screen flex flex-col items-center justify-center p-8 mt-[200px] md:mt-[250px] lg:mt-[250px] xl:mt-[300px]">
+      <h1 className="text-white text-4xl font-light mb-16 text-center" style={{ fontFamily: "Ysabeau" }}>
         Custom Design Process
       </h1>
 
-      {/* Fixed grid: Always 10 columns */}
-      <div className="w-full max-w-6xl grid grid-cols-10 border border-amber-600">
-        {steps.map((step, index) => (
-          <div
-            key={step.num}
-            className={`col-span-${
-              activeStep === index + 1 ? "7" : "1"
-            } relative p-4 md:p-6 lg:p-8 border-r border-amber-600 flex flex-col ${
-              index === steps.length - 1 ? "border-r-0" : ""
-            }`}
-            onClick={() => setActiveStep(index + 1)}
-            style={{ cursor: "pointer" }}
-          >
-            <span
-              className="text-white text-xl md:text-2xl mb-3"
-              style={{ fontFamily: "Ysabeau" }}
-            >
-              {step.num}
-            </span>
-
-            {activeStep === index + 1 && (
-              <div className="mx-4 md:mx-10 lg:mx-20 text-start">
-                <h2
-                  className="text-white text-xl md:text-2xl font-light mb-4"
-                  style={{ fontFamily: "Ysabeau" }}
-                >
-                  {step.title}
-                </h2>
-                <p
-                  className="text-gray-400 text-[11px] md:text-[12px] mb-6 max-w-sm"
-                  style={{ fontFamily: "Montserrat" }}
-                >
-                  {step.description}
-                </p>
-                <div className="w-[250px] md:w-[300px] lg:w-[350px]">
-                  <Image
-                    src={step.imageSrc}
-                    alt={step.title}
-                    width={350}
-                    height={200}
-                    className="object-cover w-full h-auto"
-                  />
-                </div>
-              </div>
-            )}
-
-            {/* Vertical label */}
-            <div className="absolute left-35 bottom-8 transform -translate-y-4 -translate-x-full rotate-270 origin-bottom-left ">
-              <span
-                className="text-white text-sm md:text-md tracking-widest whitespace-nowrap"
-                style={{ fontFamily: "Ysabeau" }}
+      <div className="w-full max-w-7xl">
+        <div className="border border-amber-500 grid grid-cols-12 min-h-[500px] overflow-hidden">
+          {steps.map((step, index) => {
+            const isActive = activeStep === index + 1
+            return (
+              <div
+                key={step.num}
+                onClick={() => setActiveStep(index + 1)}
+                className={`${isActive ? "col-span-8" : "col-span-1"} relative ${
+                  index < steps.length - 1 ? "border-r border-amber-500" : ""
+                } transition-all duration-700 ease-in-out cursor-pointer flex flex-col`}
               >
-                {step.label}
-              </span>
-            </div>
-          </div>
-        ))}
+                {/* Step Number */}
+                <div className={`p-6 ${isActive ? "ml-6" : ""} transition-all duration-700 ease-in-out`}>
+                  <span className="text-white text-xl font-light" style={{ fontFamily: "Ysabeau" }}>
+                    {step.num}
+                  </span>
+                </div>
+
+                {/* Active Content */}
+                <div
+                  className={`px-0 py-16 flex-1 flex flex-col items-start justify-center text-left relative transition-all duration-700 ease-in-out ${
+                    isActive ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+                  }`}
+                >
+                  {isActive && (
+                    <div className="ml-48 transition-all duration-700 ease-in-out delay-200">
+                      <h2
+                        className="text-white text-5xl font-light mb-10 transition-all duration-700 ease-in-out transform"
+                        style={{ fontFamily: "Ysabeau" }}
+                      >
+                        {step.title}
+                      </h2>
+                      <p
+                        className="text-gray-300 text-base mb-10 max-w-lg leading-relaxed transition-all duration-700 ease-in-out delay-100"
+                        style={{ fontFamily: "Montserrat" }}
+                      >
+                        {step.description}
+                      </p>
+                      <div className="max-w-lg transition-all duration-700 ease-in-out delay-300 transform">
+                        <Image
+                          src={step.imageSrc || "/placeholder.svg"}
+                          alt={step.title}
+                          width={400}
+                          height={250}
+                          className="object-cover w-full h-auto"
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Vertical Step Label for Active Section */}
+                  {isActive && (
+                    <div className="absolute bottom-8 left-16 transition-all duration-700 ease-in-out delay-400">
+                      <div className="transform -rotate-90 origin-bottom-left">
+                        <span
+                          className="text-white text-lg font-light tracking-wider whitespace-nowrap"
+                          style={{ fontFamily: "Ysabeau" }}
+                        >
+                          {step.label}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Vertical Label for Inactive Steps */}
+                {!isActive && (
+                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-700 ease-in-out">
+                    <div className="transform mb-10 -rotate-90 origin-center">
+                      <span
+                        className="text-white text-lg  font-light tracking-wider whitespace-nowrap"
+                        style={{ fontFamily: "Ysabeau" }}
+                      >
+                        {step.label}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
-  );
+  )
 }

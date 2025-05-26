@@ -8,9 +8,18 @@ export default function ServicesSection() {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.5 // Slow down the video for a more subtle background effect
+      videoRef.current.playbackRate = 0.5
     }
   }, [])
+
+  const services = [
+    "Office design",
+    "Residential design",
+    "Commercial space design",
+    "Renovation & Remodeling",
+    "Furniture & Decor Selection",
+    "Virtual Design Consultations",
+  ]
 
   return (
     <div className="relative w-full h-[800px] overflow-hidden mt-40">
@@ -23,42 +32,28 @@ export default function ServicesSection() {
       {/* Top Black Bar */}
       <div className="absolute top-0 left-0 w-full bg-black py-6 px-4 z-10">
         <h2 className="text-white text-3xl md:text-7xl font-normal text-center"
-       style={{ fontFamily: "Ysabeau" }} >
+          style={{ fontFamily: "Ysabeau" }}>
           Our Services <span className="inline-block w-32 h-px bg-white ml-4 align-middle"></span>
         </h2>
       </div>
 
       {/* Services Glass Panel */}
-      <div className="absolute right-8 top-1/2 transform -translate-y-1/2 z-10 w-full max-w-[320px] md:max-w-[380px] backdrop-blur-md rounded-3xl overflow-hidden">
+      <div className="absolute right-24 top-4/7 transform -translate-y-1/2 z-10 w-full max-w-[320px] md:max-w-[450px] backdrop-blur-md rounded-3xl overflow-hidden">
         <div className="p-6 md:p-8 border border-white">
           <ParallaxSection type="slide-from-right" speed={1.2}>
-          <ul className="space-y-4">
-            <li className="border-b border-gray-300/50 pb-4">
-              <h3 className="text-[#0D1110] text-lg md:text-xl font-medium"
-              style={{ fontFamily: "Ysabeau" }}>Office design</h3>
-              
-            </li>
-            <li className="border-b border-gray-300/50 pb-4">
-              <h3 className="text-[#0D1110] text-lg md:text-xl font-medium"
-              style={{ fontFamily: "Ysabeau" }}>Residential design</h3>
-            </li>
-            <li className="border-b border-gray-300/50 pb-4">
-              <h3 className="text-[#0D1110] text-lg md:text-xl font-medium"
-              style={{ fontFamily: "Ysabeau" }}>Commercial space design</h3>
-            </li>
-            <li className="border-b border-gray-300/50 pb-4">
-              <h3 className="text-[#0D1110] text-lg md:text-xl font-medium"
-              style={{ fontFamily: "Ysabeau" }}>Renovation & Remodeling</h3>
-            </li>
-            <li className="border-b border-gray-300/50 pb-4">
-              <h3 className="text-[#0D1110] text-lg md:text-xl font-medium"
-              style={{ fontFamily: "Ysabeau" }}>Furniture & Decor Selection</h3>
-            </li>
-            <li>
-              <h3 className="text-[#0D1110] text-lg md:text-xl font-medium"
-              style={{ fontFamily: "Ysabeau" }}>Virtual Design Consultations</h3>
-            </li>
-          </ul>
+            <ul className="space-y-4">
+              {services.map((service, index) => (
+                <li
+                  key={index}
+                  className={`pb-4 ${index < services.length - 1 ? "border-b border-gray-300/50 pt-2 pb-6" : ""}`}
+                >
+                  <h3 className="text-[black] text-lg md:text-2xl font-medium"
+                    style={{ fontFamily: "Ysabeau" }}>
+                    {service}
+                  </h3>
+                </li>
+              ))}
+            </ul>
           </ParallaxSection>
         </div>
       </div>

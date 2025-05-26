@@ -11,11 +11,11 @@ export default function CustomizeSection() {
   const [hoveredSection, setHoveredSection] = useState<SectionName | null>(null)
 
   const image4Src: Record<SectionName, string> = {
-    "Living Room": "/furnitureWebsite/costomizesSection/image4_1.png",
-    Bedroom: "/furnitureWebsite/costomizesSection/image4_2.png",
-    "Dining & Kitchen": "/furnitureWebsite/costomizesSection/image4_3.png",
-    Office: "/furnitureWebsite/costomizesSection/image4_4.png",
-    "Outdoor Furniture": "/furnitureWebsite/costomizesSection/image4_5.png",
+    "Living Room": "/furnitureWebsite/costomizesSection/living.png",
+    Bedroom: "/furnitureWebsite/costomizesSection/bedroom.png",
+    "Dining & Kitchen": "/furnitureWebsite/costomizesSection/dining.png",
+    Office: "/furnitureWebsite/costomizesSection/office.png",
+    "Outdoor Furniture": "/furnitureWebsite/costomizesSection/outdoor.png",
   }
 
   return (
@@ -102,13 +102,16 @@ export default function CustomizeSection() {
                 height={408}
                 className="object-contain lg:h-[408px] lg:w-[612px] md:h-[250px] md:w-[400px]"
               />
-              <Image
-                src="/furnitureWebsite/costomizesSection/image5.png"
-                alt="Nesting tables"
-                width={158}
-                height={126}
-                className="object-contain lg:h-[126px] lg:w-[158px] md:h-[80px] md:w-[100px] right-10"
-              />
+              {(!hoveredSection || hoveredSection === "Office") && (
+                <Image
+                  src="/furnitureWebsite/costomizesSection/stool.png"
+                  alt="Nesting tables"
+                  width={158}
+                  height={126}
+                  className="object-contain lg:h-[126px] lg:w-[158px] md:h-[80px] md:w-[100px] right-10"
+                />
+              )}
+
             </div>
           </div>
         </div>
